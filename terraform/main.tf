@@ -1,15 +1,15 @@
-resource "digitalocean_tag" "tecWeb"{
-  name = "tecWeb"
+resource "digitalocean_tag" "tecWeb" {
+	name = "tecWeb"
 }
 resource "digitalocean_droplet" "tecWeb" {
-	count = 2
+  count = 2
   image  = "${var.image_id}"
   name   = "tecWeb"
-  region = "SFO2"
+  region = "sfo2"
   size   = "512mb"
   ssh_keys = [25960101]
   user_data = "${file("user-data.web")}"
-	tags = ["${digitalocean_tag.tecWeb.id}"]
+  tags = ["${digitalocean_tag.tecWeb.id}"]
 }
 
 resource "digitalocean_loadbalancer" "tecWeb" {
