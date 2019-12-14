@@ -22,7 +22,7 @@
         {
             "type": "shell",
             "inline": [
-               "docker pull {{user 'build_number'}}",
+               "docker pull {{user `build_number`}}",
                 "docker run -d -p 3000:3000 webapp"
             ]
         }
